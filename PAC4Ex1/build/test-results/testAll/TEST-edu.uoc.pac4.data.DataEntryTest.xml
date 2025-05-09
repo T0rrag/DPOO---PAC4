@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.uoc.pac4.data.DataEntryTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-05-09T09:39:16" hostname="TORRE15" time="0.013">
+  <properties/>
+  <testcase name="Sanity - Fields definition" classname="edu.uoc.pac4.data.DataEntryTest" time="0.0"/>
+  <testcase name="Sanity - Constructor definition" classname="edu.uoc.pac4.data.DataEntryTest" time="0.0"/>
+  <testcase name="Sanity - Methods definition" classname="edu.uoc.pac4.data.DataEntryTest" time="0.001"/>
+  <testcase name="Minimum - Valid parameters" classname="edu.uoc.pac4.data.DataEntryTest" time="0.0"/>
+  <testcase name="Minimum - Id" classname="edu.uoc.pac4.data.DataEntryTest" time="0.002"/>
+  <testcase name="Minimum - Title" classname="edu.uoc.pac4.data.DataEntryTest" time="0.001"/>
+  <testcase name="Minimum - Timestamp" classname="edu.uoc.pac4.data.DataEntryTest" time="0.0"/>
+  <testcase name="Minimum - Observations" classname="edu.uoc.pac4.data.DataEntryTest" time="0.001"/>
+  <testcase name="Advanced - toString" classname="edu.uoc.pac4.data.DataEntryTest" time="0.002"/>
+  <testcase name="Advanced - equals" classname="edu.uoc.pac4.data.DataEntryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

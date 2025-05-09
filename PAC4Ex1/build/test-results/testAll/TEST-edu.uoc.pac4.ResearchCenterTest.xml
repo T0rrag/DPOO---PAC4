@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.uoc.pac4.ResearchCenterTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-05-09T09:39:16" hostname="TORRE15" time="0.063">
+  <properties/>
+  <testcase name="Sanity - Fields definition" classname="edu.uoc.pac4.ResearchCenterTest" time="0.015"/>
+  <testcase name="Sanity - Constructor definition" classname="edu.uoc.pac4.ResearchCenterTest" time="0.001"/>
+  <testcase name="Sanity - Methods definition" classname="edu.uoc.pac4.ResearchCenterTest" time="0.001"/>
+  <testcase name="Minimum - Valid parameters" classname="edu.uoc.pac4.ResearchCenterTest" time="0.002"/>
+  <testcase name="Minimum - Name" classname="edu.uoc.pac4.ResearchCenterTest" time="0.006"/>
+  <testcase name="Minimum - City" classname="edu.uoc.pac4.ResearchCenterTest" time="0.002"/>
+  <testcase name="Minimum - Address" classname="edu.uoc.pac4.ResearchCenterTest" time="0.003"/>
+  <testcase name="Minimum - PhoneNumber" classname="edu.uoc.pac4.ResearchCenterTest" time="0.004"/>
+  <testcase name="Minimum - Email" classname="edu.uoc.pac4.ResearchCenterTest" time="0.005"/>
+  <testcase name="Minimum - DataRepository" classname="edu.uoc.pac4.ResearchCenterTest" time="0.001"/>
+  <testcase name="Advanced - toString" classname="edu.uoc.pac4.ResearchCenterTest" time="0.013"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.uoc.pac4.exception.DataEntryExceptionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-05-09T09:39:16" hostname="TORRE15" time="0.003">
+  <properties/>
+  <testcase name="Sanity - Fields definition" classname="edu.uoc.pac4.exception.DataEntryExceptionTest" time="0.001"/>
+  <testcase name="Sanity - Class definition" classname="edu.uoc.pac4.exception.DataEntryExceptionTest" time="0.001"/>
+  <testcase name="Sanity - Constructor definition" classname="edu.uoc.pac4.exception.DataEntryExceptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
