@@ -3,6 +3,8 @@ package edu.uoc.pac4.data;
 import edu.uoc.pac4.exception.DataEntryException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 
 public class DataEntry {
     private int id;
@@ -52,10 +54,15 @@ public class DataEntry {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
-        return String.format("{\"id\": %d, \"title\": \"%s\", \"timestamp\": \"%s\", \"observations\": \"%s\"}",
-                id, title, timestamp.format(formatter), observations);
+        return String.format(
+                "{\"id\":%d,\"title\":\"%s\",\"timestamp\":\"%s\",\"observations\":\"%s\"}",
+                id,
+                title,
+                timestamp.toString(),
+                observations
+        );
     }
+
 
     @Override
     public boolean equals(Object obj) {

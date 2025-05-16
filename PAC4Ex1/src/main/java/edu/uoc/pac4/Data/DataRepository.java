@@ -1,6 +1,7 @@
 package edu.uoc.pac4.data;
 
 import edu.uoc.pac4.exception.DataRepositoryException;
+
 import java.util.HashMap;
 
 public class DataRepository {
@@ -24,12 +25,16 @@ public class DataRepository {
         this.name = name.trim();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addDataEntry(DataEntry dataEntry) throws DataRepositoryException {
         if (dataEntry == null) {
             throw new DataRepositoryException(DataRepositoryException.ERROR_DATA_ENTRY_NULL);
         }
         if (dataEntries.containsKey(dataEntry.getId())) {
-            throw new DataRepositoryException(DataRepositoryException.ERROR_DATA_ENTRY_EXISTS);
+            throw new DataRepositoryException(DataRepositoryException.ERROR_ENTRY_ALREADY_EXISTS);
         }
         dataEntries.put(dataEntry.getId(), dataEntry);
     }
@@ -41,8 +46,6 @@ public class DataRepository {
         }
         return entry;
     }
-
-    public String getName() { return name; }
 
     @Override
     public String toString() {
