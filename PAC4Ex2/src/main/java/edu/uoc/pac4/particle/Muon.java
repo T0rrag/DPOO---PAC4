@@ -11,7 +11,6 @@ public class Muon extends Fermion implements QuantumDecaying {
         setDecayTime(decayTime);
     }
 
-    // Estos SÍ pueden llevar @Override porque están en la interfaz QuantumDecaying
     @Override
     public double getDecayTime() { return decayTime; }
 
@@ -23,14 +22,14 @@ public class Muon extends Fermion implements QuantumDecaying {
         this.decayTime = decayTime;
     }
 
-    // Quitar @Override si no está en padre/interfaz
+
     public void simulate() {
         System.out.printf(Locale.US,
                 "Muon [%s] with lepton number %d decays after %.2e s.%n",
                 getId(), getLeptonNumber(), decayTime);
     }
 
-    // Quitar @Override si no está en padre/interfaz
+
     public String toString() {
         return String.format(Locale.US,
                 "{\"type\":\"muon\",\"fermion\":%s,\"decayTime\":%.2e}",

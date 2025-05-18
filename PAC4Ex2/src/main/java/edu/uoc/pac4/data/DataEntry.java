@@ -12,7 +12,6 @@ public class DataEntry implements Cloneable {
     private String observations;
     private Particle particle;
 
-    // CONSTRUCTOR CORREGIDO
     public DataEntry(int id, String title, LocalDateTime timestamp, String observations, Particle particle) throws DataEntryException {
         if (particle == null) {
             throw new DataEntryException("[ERROR] Particle cannot be null.");
@@ -38,7 +37,7 @@ public class DataEntry implements Cloneable {
 
     public Particle getParticle() { return particle; }
 
-    // SETTER CORREGIDO (opcional, pero recomendado por si lo piden en tests)
+
     public void setParticle(Particle particle) throws DataEntryException {
         if (particle == null) {
             throw new DataEntryException("[ERROR] Particle cannot be null.");

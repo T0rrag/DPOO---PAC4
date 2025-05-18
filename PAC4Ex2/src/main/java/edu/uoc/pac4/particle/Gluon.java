@@ -30,7 +30,6 @@ public class Gluon extends Boson {
 
     @Override
     public String toString() {
-        // Formato JSON EXÁCTO, con boson->particle anidado, decimales .00 y sin espacios extra
         return String.format(Locale.US,
                 "{\"type\":\"gluon\",\"boson\":{\"particle\":{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f},\"forceCarrier\":%s},\"colorCharge\":\"%s\"}",
                 getId(), getMass(), getCharge(), getSpin(), getEnergy(),

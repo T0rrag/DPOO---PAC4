@@ -23,7 +23,6 @@ public abstract class Fermion extends Particle {
 
     @Override
     public String toString() {
-        // JSON plano, sin saltos de línea ni espacios extra
         return String.format("{\"particle\":%s,\"leptonNumber\":%d}", super.toString(), leptonNumber);
     }
 }
