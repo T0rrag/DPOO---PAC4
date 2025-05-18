@@ -12,6 +12,7 @@ public class Magnon extends QuasiParticle {
     }
 
     public int getSpinFlipCount() { return spinFlipCount; }
+
     public void setSpinFlipCount(int spinFlipCount) throws ParticleException {
         if (spinFlipCount < 0) {
             throw new ParticleException(ParticleException.ERROR_SPIN_FLIP_COUNT);
@@ -28,15 +29,8 @@ public class Magnon extends QuasiParticle {
     @Override
     public String toString() {
         return String.format(
-                "{\n  \"type\": \"magnon\",\n  \"quasiParticle\": %s,\n  \"spinFlipCount\": %d\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
-                spinFlipCount
+                "{\"type\":\"magnon\",\"quasiParticle\":%s,\"spinFlipCount\":%d}",
+                super.toString(), spinFlipCount
         );
     }
-
-    @Override
-    public Magnon clone() throws CloneNotSupportedException {
-        return (Magnon) super.clone();
-    }
-
 }

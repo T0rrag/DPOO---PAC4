@@ -2,6 +2,8 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
+import java.util.Locale;
+
 public abstract class QuasiParticle extends Particle implements Simulatable {
 
     private double lifeTime;
@@ -51,10 +53,10 @@ public abstract class QuasiParticle extends Particle implements Simulatable {
 
     @Override
     public String toString() {
-        return String.format(
-                "%s%n    Lifetime: %.2f%n    Coherence Length: %.2f%n    Material Type: %s",
-                super.toString(), lifeTime, coherenceLength,
-                (materialType != null ? materialType.getName() : "null")
+        return String.format(Locale.US,
+                "{\"particle\":%s,\"lifeTime\":%.3e,\"coherenceLength\":%.3e,\"materialType\":%s}",
+                super.toString(), getLifeTime(), getCoherenceLength(), getMaterialType().toString()
         );
     }
+
 }

@@ -1,7 +1,6 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
-
 import java.util.Locale;
 
 public class Exciton extends QuasiParticle implements QuantumDecaying {
@@ -39,18 +38,11 @@ public class Exciton extends QuasiParticle implements QuantumDecaying {
         System.out.printf(Locale.US, "Exciton [%s] with binding energy %.2f eV decays after %.2e s.%n", getId(), bindingEnergy, decayTime);
     }
 
-
     @Override
     public String toString() {
         return String.format(Locale.US,
-                "{\"type\":\"exciton\",\"quasiParticle\":%s,\"bindingEnergy\":%.2f,\"decayTime\":%.3e}",
+                "{\"type\":\"exciton\",\"quasiParticle\":%s,\"bindingEnergy\":%.2f,\"decayTime\":%.2e}",
                 super.toString(), bindingEnergy, decayTime
         );
-    }
-
-
-    @Override
-    public Exciton clone() throws CloneNotSupportedException {
-        return (Exciton) super.clone();
     }
 }

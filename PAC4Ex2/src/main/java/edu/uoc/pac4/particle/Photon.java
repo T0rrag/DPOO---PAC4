@@ -1,6 +1,7 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
+import java.util.Locale;
 
 public class Photon extends Boson {
     private double wavelength;
@@ -20,16 +21,20 @@ public class Photon extends Boson {
 
     @Override
     public void simulate() {
-        System.out.printf("Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
+        // Asegura puntos decimales, NO comas (Locale.US)
+        System.out.printf(Locale.US,
+                "Photon [%s] with wavelength %.2f nm has been absorbed, transferring %.2f eV of energy.%n",
                 getId(), wavelength, getEnergy());
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n  \"type\": \"photon\",\n  \"boson\": %s,\n  \"wavelength\": %.2f\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
-                wavelength
+        // Construye el JSON EXACTO esperado por el test, usando Locale.US en todos los String.format
+        // NOTA: Hay que expandir el toString de Boson para incluir el "particle" anidado
+        // Supongamos que Boson.toString() da solo los campos de boson (fíjate si hay que adaptarlo)
+        return String.format(Locale.US,
+                "{\"type\":\"photon\",\"boson\":{\"particle\":{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f},\"forceCarrier\":%s},\"wavelength\":%.2f}",
+                getId(), getMass(), getCharge(), getSpin(), getEnergy(), isForceCarrier(), wavelength
         );
     }
 
@@ -37,5 +42,4 @@ public class Photon extends Boson {
     public Photon clone() throws CloneNotSupportedException {
         return (Photon) super.clone();
     }
-
 }

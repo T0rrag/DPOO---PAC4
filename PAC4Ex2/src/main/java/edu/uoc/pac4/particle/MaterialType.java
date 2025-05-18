@@ -1,5 +1,7 @@
 package edu.uoc.pac4.particle;
 
+import java.util.Locale;
+
 public enum MaterialType {
     SILICON("Silicon", 2.33),
     GRAPHENE("Graphene", 2.26),
@@ -19,6 +21,6 @@ public enum MaterialType {
 
     @Override
     public String toString() {
-        return String.format("{\n  \"name\": \"%s\",\n  \"density\": %.2f\n}", name, density);
+        return String.format(Locale.US,"{\"name\":\"%s\",\"density\":%.2f}", getName(), getDensity());
     }
 }

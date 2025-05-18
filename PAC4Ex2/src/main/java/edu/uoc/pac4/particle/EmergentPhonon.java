@@ -1,6 +1,7 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
+import java.util.Locale;
 
 public class EmergentPhonon extends QuasiParticle {
 
@@ -25,21 +26,15 @@ public class EmergentPhonon extends QuasiParticle {
     }
 
     @Override
-    public void simulate() {
-        // Implementación de simulación para EmergentPhonon, dejar vacío si no hay especificación
-    }
-
-    @Override
     public String toString() {
-        return String.format(
-                "EmergentPhonon{%n    ID: %s%n    Vibration Mode: %s%n    Lifetime: %.2f%n%s}",
-                getId(), vibrationMode, getLifeTime(),
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{")
-        );
+        return String.format(Locale.US,
+                "{\"type\":\"emergentPhonon\",\"quasiParticle\":%s,\"vibrationMode\":\"%s\"}",
+                super.toString(), getVibrationMode());
     }
 
     @Override
-    public EmergentPhonon clone() throws CloneNotSupportedException {
-        return (EmergentPhonon) super.clone();
+    public void simulate() {
+        System.out.printf(Locale.US, "EmergentPhonon [%s] vibrating in %s mode with lifetime %.2e s.%n",
+                getId(), getVibrationMode(), getLifeTime());
     }
 }

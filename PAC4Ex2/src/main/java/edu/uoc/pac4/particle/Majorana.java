@@ -1,6 +1,7 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
+import java.util.Locale;
 
 public class Majorana extends QuasiParticle {
     private boolean isSelfConjugate;
@@ -17,21 +18,17 @@ public class Majorana extends QuasiParticle {
     @Override
     public void simulate() {
         String type = isSelfConjugate ? "self-conjugate" : "distinct from its antiparticle";
+        String materialStr = String.format("{\"name\": \"%s\", \"density\": %.2f}",
+                getMaterialType().getName(), getMaterialType().getDensity());
         System.out.printf("Majorana [%s] in %s material behaving as %s particle.%n",
-                getId(), getMaterialType().getName(), type);
+                getId(), materialStr, type);
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n  \"type\": \"majorana\",\n  \"quasiParticle\": %s,\n  \"isSelfConjugate\": %b\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
-                isSelfConjugate
+        return String.format(Locale.US,
+                "{\"type\":\"majorana\",\"quasiParticle\":%s,\"isSelfConjugate\":%s}",
+                super.toString(), isSelfConjugate()
         );
-    }
-
-    @Override
-    public Majorana clone() throws CloneNotSupportedException {
-        return (Majorana) super.clone();
     }
 }

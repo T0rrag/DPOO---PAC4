@@ -1,6 +1,7 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
+import java.util.Locale;
 
 public abstract class Particle implements Cloneable, Simulatable {
     private String id;
@@ -60,9 +61,9 @@ public abstract class Particle implements Cloneable, Simulatable {
 
     @Override
     public String toString() {
-        return String.format(java.util.Locale.US,
+        return String.format(Locale.US,
                 "{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f}",
                 getId(), getMass(), getCharge(), getSpin(), getEnergy());
     }
-    // NO DECLARES simulate(), equals(), hashCode(), ni ningún otro método extra
+    // NO declares simulate(), equals(), hashCode(), ni ningún otro método extra aquí
 }
