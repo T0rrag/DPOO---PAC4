@@ -15,7 +15,7 @@ public class Magnon extends QuasiParticle {
 
     public void setSpinFlipCount(int spinFlipCount) throws ParticleException {
         if (spinFlipCount < 0) {
-            throw new ParticleException(ParticleException.ERROR_SPIN_FLIP_COUNT);
+            throw new ParticleException("[ERROR] " + ParticleException.ERROR_SPIN_FLIP_COUNT);
         }
         this.spinFlipCount = spinFlipCount;
     }

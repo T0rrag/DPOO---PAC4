@@ -18,11 +18,12 @@ public class Majorana extends QuasiParticle {
     @Override
     public void simulate() {
         String type = isSelfConjugate ? "self-conjugate" : "distinct from its antiparticle";
-        String materialStr = String.format("{\"name\": \"%s\", \"density\": %.2f}",
+        String materialStr = String.format(Locale.US, "{\"name\": \"%s\", \"density\": %.2f}",
                 getMaterialType().getName(), getMaterialType().getDensity());
         System.out.printf("Majorana [%s] in %s material behaving as %s particle.%n",
                 getId(), materialStr, type);
     }
+
 
     @Override
     public String toString() {

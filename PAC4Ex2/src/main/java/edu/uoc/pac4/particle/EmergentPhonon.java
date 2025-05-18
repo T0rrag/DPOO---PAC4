@@ -20,7 +20,7 @@ public class EmergentPhonon extends QuasiParticle {
 
     public void setVibrationMode(String vibrationMode) throws ParticleException {
         if (vibrationMode == null || vibrationMode.isBlank()) {
-            throw new ParticleException(ParticleException.ERROR_VIBRATION_MODE);
+            throw new ParticleException("[ERROR] " + ParticleException.ERROR_VIBRATION_MODE);
         }
         this.vibrationMode = vibrationMode;
     }

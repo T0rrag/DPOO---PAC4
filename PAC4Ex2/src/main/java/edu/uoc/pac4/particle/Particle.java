@@ -65,5 +65,7 @@ public abstract class Particle implements Cloneable, Simulatable {
                 "{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f}",
                 getId(), getMass(), getCharge(), getSpin(), getEnergy());
     }
-    // NO declares simulate(), equals(), hashCode(), ni ningún otro método extra aquí
+
+    @Override
+    public abstract void simulate(); // <-- SOLO la declaración, NO la implementación
 }

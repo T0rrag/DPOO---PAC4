@@ -18,7 +18,7 @@ public class Muon extends Fermion implements QuantumDecaying {
     @Override
     public void setDecayTime(double decayTime) throws ParticleException {
         if (decayTime < 0 || Double.isInfinite(decayTime)) {
-            throw new ParticleException(ParticleException.ERROR_DECAY_TIME);
+            throw new ParticleException("[ERROR] " + ParticleException.ERROR_DECAY_TIME);
         }
         this.decayTime = decayTime;
     }
