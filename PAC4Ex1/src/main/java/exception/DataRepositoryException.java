@@ -1,4 +1,3 @@
-// DataRepositoryException.java  ✅ DEFINITIVO
 package edu.uoc.pac4.exception;
 
 public class DataRepositoryException extends AppException {
