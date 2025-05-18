@@ -10,25 +10,20 @@ public abstract class Fermion extends Particle {
         setLeptonNumber(leptonNumber);
     }
 
-    public int getLeptonNumber() { return leptonNumber; }
+    public int getLeptonNumber() {
+        return leptonNumber;
+    }
+
     public void setLeptonNumber(int leptonNumber) throws ParticleException {
         if (leptonNumber < 0) {
-            throw new ParticleException(ParticleException.ERR_LEPTON_NUMBER_NEG);
+            throw new ParticleException("[ERROR] Lepton number cannot be negative.");
         }
         this.leptonNumber = leptonNumber;
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n  \"particle\": %s,\n  \"leptonNumber\": %d\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"), leptonNumber
-        );
+        // JSON plano, sin saltos de línea ni espacios extra
+        return String.format("{\"particle\":%s,\"leptonNumber\":%d}", super.toString(), leptonNumber);
     }
-
-    @Override
-    public Fermion clone() throws CloneNotSupportedException {
-        return (Fermion) super.clone();
-    }
-
 }

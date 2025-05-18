@@ -66,9 +66,9 @@ public abstract class Particle implements Cloneable, Simulatable {
 
     @Override
     public String toString() {
-        return String.format(
-                "{\n  \"id\": \"%s\",\n  \"mass\": %.2f,\n  \"charge\": %.2f,\n  \"spin\": %.2f,\n  \"energy\": %.2f\n}",
-                id, mass, charge, spin, energy
-        );
+        return String.format(java.util.Locale.US,
+                "{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f}",
+                getId(), getMass(), getCharge(), getSpin(), getEnergy());
     }
+
 }

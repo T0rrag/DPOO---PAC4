@@ -3,34 +3,38 @@ package edu.uoc.pac4.particle;
 import edu.uoc.pac4.exception.ParticleException;
 
 public class EmergentPhonon extends QuasiParticle {
+
     private String vibrationMode;
 
     public EmergentPhonon(String id, double mass, double charge, double spin, double energy,
-                          double lifeTime, double coherenceLength, MaterialType materialType, String vibrationMode) throws ParticleException {
-        super(id, mass, charge, spin, energy, lifeTime, coherenceLength, materialType);
+                          double lifetime, double coherenceLength, MaterialType materialType,
+                          String vibrationMode) throws ParticleException {
+        super(id, mass, charge, spin, energy, lifetime, coherenceLength, materialType);
         setVibrationMode(vibrationMode);
     }
 
-    public String getVibrationMode() { return vibrationMode; }
+    public String getVibrationMode() {
+        return vibrationMode;
+    }
+
     public void setVibrationMode(String vibrationMode) throws ParticleException {
-        if (vibrationMode == null || vibrationMode.trim().isEmpty()) {
-            throw new ParticleException(ParticleException.ERR_VIBRATION_MODE_NULL_BLANK);
+        if (vibrationMode == null || vibrationMode.isBlank()) {
+            throw new ParticleException(ParticleException.ERROR_VIBRATION_MODE);
         }
-        this.vibrationMode = vibrationMode.trim();
+        this.vibrationMode = vibrationMode;
     }
 
     @Override
     public void simulate() {
-        System.out.printf("EmergentPhonon [%s] vibrating in %s mode with lifetime %.2e s.%n",
-                getId(), vibrationMode, getLifeTime());
+        // Implementación de simulación para EmergentPhonon, dejar vacío si no hay especificación
     }
 
     @Override
     public String toString() {
         return String.format(
-                "{\n  \"type\": \"emergentPhonon\",\n  \"quasiParticle\": %s,\n  \"vibrationMode\": \"%s\"\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
-                vibrationMode
+                "EmergentPhonon{%n    ID: %s%n    Vibration Mode: %s%n    Lifetime: %.2f%n%s}",
+                getId(), vibrationMode, getLifeTime(),
+                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{")
         );
     }
 

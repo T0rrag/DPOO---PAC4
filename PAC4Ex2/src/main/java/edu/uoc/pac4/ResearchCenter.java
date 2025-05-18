@@ -36,4 +36,16 @@ public class ResearchCenter {
 
     public DataRepository getDataRepository() { return dataRepository; }
     public void setDataRepository(DataRepository dataRepository) { this.dataRepository = dataRepository; }
+
+    @Override
+    public String toString() {
+        return "ResearchCenter{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", dataRepository=" + dataRepository +
+                '}';
+    }
 }
