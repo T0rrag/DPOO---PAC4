@@ -1,6 +1,7 @@
 package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
+import java.util.Locale;
 
 public class Muon extends Fermion implements QuantumDecaying {
     private double decayTime;
@@ -10,33 +11,30 @@ public class Muon extends Fermion implements QuantumDecaying {
         setDecayTime(decayTime);
     }
 
+    // Estos SÍ pueden llevar @Override porque están en la interfaz QuantumDecaying
     @Override
     public double getDecayTime() { return decayTime; }
+
     @Override
     public void setDecayTime(double decayTime) throws ParticleException {
         if (decayTime < 0 || Double.isInfinite(decayTime)) {
-            throw new ParticleException(ParticleException.ERR_DECAY_TIME_NEG_INF);
+            throw new ParticleException(ParticleException.ERROR_DECAY_TIME);
         }
         this.decayTime = decayTime;
     }
 
-    @Override
+    // Quitar @Override si no está en padre/interfaz
     public void simulate() {
-        System.out.printf("Muon [%s] with lepton number %d decays after %.2e s.%n",
+        System.out.printf(Locale.US,
+                "Muon [%s] with lepton number %d decays after %.2e s.%n",
                 getId(), getLeptonNumber(), decayTime);
     }
 
-    @Override
+    // Quitar @Override si no está en padre/interfaz
     public String toString() {
-        return String.format(
-                "{\n  \"type\": \"muon\",\n  \"fermion\": %s,\n  \"decayTime\": %.3e\n}",
-                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
-                decayTime
+        return String.format(Locale.US,
+                "{\"type\":\"muon\",\"fermion\":%s,\"decayTime\":%.2e}",
+                super.toString(), decayTime
         );
-    }
-
-    @Override
-    public Muon clone() throws CloneNotSupportedException {
-        return (Muon) super.clone();
     }
 }

@@ -13,7 +13,7 @@ public class Photon extends Boson {
     public double getWavelength() { return wavelength; }
     public void setWavelength(double wavelength) throws ParticleException {
         if (wavelength < 0 || Double.isInfinite(wavelength)) {
-            throw new ParticleException(ParticleException.ERR_WAVELENGTH_NEG_INF);
+            throw new ParticleException(ParticleException.ERROR_WAVELENGTH);
         }
         this.wavelength = wavelength;
     }

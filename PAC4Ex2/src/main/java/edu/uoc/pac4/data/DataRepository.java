@@ -1,7 +1,6 @@
 package edu.uoc.pac4.data;
 
 import java.util.HashMap;
-import java.util.Collection;
 
 public class DataRepository implements Cloneable {
     private String name;
@@ -22,7 +21,7 @@ public class DataRepository implements Cloneable {
     }
 
     @Override
-    public DataRepository clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         DataRepository copy = (DataRepository) super.clone();
         copy.dataEntries = new java.util.HashMap<>();
         for (java.util.Map.Entry<Integer, DataEntry> entry : this.dataEntries.entrySet()) {
@@ -40,10 +39,6 @@ public class DataRepository implements Cloneable {
 
     public DataEntry getDataEntry(int id) {
         return dataEntries.get(id);
-    }
-
-    public Collection<DataEntry> getAllDataEntries() {
-        return dataEntries.values();
     }
 
     public String getName() { return name; }

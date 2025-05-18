@@ -1,6 +1,6 @@
 package edu.uoc.pac4.exception;
 
-public class ResearchCenterException extends Exception {
+public class ResearchCenterException extends AppException {
   public static final String ERROR_NAME = "Name cannot be null or blank.";
   public static final String ERROR_ADDRESS = "Address cannot be null.";
   public static final String ERROR_CITY = "City cannot be null.";

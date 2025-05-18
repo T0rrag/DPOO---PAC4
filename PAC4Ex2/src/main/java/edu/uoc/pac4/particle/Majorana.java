@@ -23,11 +23,12 @@ public class Majorana extends QuasiParticle {
 
     @Override
     public String toString() {
-        return String.format(java.util.Locale.US,
-                "{\"type\":\"majorana\",%s,\"isSelfConjugate\":%s}",
-                super.toString(), isSelfConjugate());
+        return String.format(
+                "{\n  \"type\": \"majorana\",\n  \"quasiParticle\": %s,\n  \"isSelfConjugate\": %b\n}",
+                super.toString().replaceAll("(?m)^", "    ").replaceFirst("\\s+\\{", "{"),
+                isSelfConjugate
+        );
     }
-
 
     @Override
     public Majorana clone() throws CloneNotSupportedException {

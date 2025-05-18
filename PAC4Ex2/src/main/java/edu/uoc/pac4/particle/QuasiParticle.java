@@ -2,29 +2,29 @@ package edu.uoc.pac4.particle;
 
 import edu.uoc.pac4.exception.ParticleException;
 
-public class QuasiParticle extends Particle implements Simulatable {
+public abstract class QuasiParticle extends Particle implements Simulatable {
 
-    private double lifetime;
+    private double lifeTime;
     private double coherenceLength;
     private MaterialType materialType;
 
     public QuasiParticle(String id, double mass, double charge, double spin, double energy,
-                         double lifetime, double coherenceLength, MaterialType materialType) throws ParticleException {
+                         double lifeTime, double coherenceLength, MaterialType materialType) throws ParticleException {
         super(id, mass, charge, spin, energy);
-        setLifeTime(lifetime);
+        setLifeTime(lifeTime);
         setCoherenceLength(coherenceLength);
         setMaterialType(materialType);
     }
 
     public double getLifeTime() {
-        return lifetime;
+        return lifeTime;
     }
 
-    public void setLifeTime(double lifetime) throws ParticleException {
-        if (Double.isNaN(lifetime) || lifetime <= 0 || Double.isInfinite(lifetime)) {
-            throw new ParticleException(ParticleException.ERROR_LIFETIME);
+    public void setLifeTime(double lifeTime) throws ParticleException {
+        if (Double.isNaN(lifeTime) || lifeTime <= 0 || Double.isInfinite(lifeTime)) {
+            throw new ParticleException("[ERROR] Lifetime cannot be negative, zero or infinite.");
         }
-        this.lifetime = lifetime;
+        this.lifeTime = lifeTime;
     }
 
     public double getCoherenceLength() {
@@ -33,7 +33,7 @@ public class QuasiParticle extends Particle implements Simulatable {
 
     public void setCoherenceLength(double coherenceLength) throws ParticleException {
         if (Double.isNaN(coherenceLength) || coherenceLength < 0 || Double.isInfinite(coherenceLength)) {
-            throw new ParticleException(ParticleException.ERROR_COHERENCE_LENGTH);
+            throw new ParticleException("[ERROR] Coherence length cannot be negative or infinite.");
         }
         this.coherenceLength = coherenceLength;
     }
@@ -44,26 +44,17 @@ public class QuasiParticle extends Particle implements Simulatable {
 
     public void setMaterialType(MaterialType materialType) throws ParticleException {
         if (materialType == null) {
-            throw new ParticleException(ParticleException.ERROR_MATERIAL_TYPE);
+            throw new ParticleException("[ERROR] Material type cannot be null.");
         }
         this.materialType = materialType;
     }
 
     @Override
-    public void simulate() {
-        // Implementación de simulación, dejar vacío si no hay especificación
-    }
-
-    @Override
     public String toString() {
-        return String.format(java.util.Locale.US,
-                "\"quasiParticle\":{\"particle\":%s,\"lifeTime\":%.3e,\"coherenceLength\":%.3e,\"materialType\":%s}",
-                super.toString(), getLifeTime(), getCoherenceLength(), getMaterialType().toString());
-    }
-
-
-    @Override
-    public QuasiParticle clone() throws CloneNotSupportedException {
-        return (QuasiParticle) super.clone();
+        return String.format(
+                "%s%n    Lifetime: %.2f%n    Coherence Length: %.2f%n    Material Type: %s",
+                super.toString(), lifeTime, coherenceLength,
+                (materialType != null ? materialType.getName() : "null")
+        );
     }
 }

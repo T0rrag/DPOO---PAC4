@@ -14,17 +14,11 @@ public enum MaterialType {
         this.density = density;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getDensity() {
-        return density;
-    }
+    public String getName() { return name; }
+    public double getDensity() { return density; }
 
     @Override
     public String toString() {
-        return String.format(java.util.Locale.US,
-                "{\"name\":\"%s\",\"density\":%.2f}", getName(), getDensity());
+        return String.format("{\n  \"name\": \"%s\",\n  \"density\": %.2f\n}", name, density);
     }
 }

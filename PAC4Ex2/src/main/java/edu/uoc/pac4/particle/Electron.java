@@ -10,7 +10,7 @@ public class Electron extends Fermion {
         super(id, mass, charge, spin, energy, leptonNumber);
     }
 
-    @Override
+    // Quitar @Override si Fermion NO tiene este método
     public String toString() {
         return String.format(Locale.US,
                 "{\"type\":\"electron\",\"fermion\":{\"particle\":{\"id\":\"%s\",\"mass\":%.2f,\"charge\":%.2f,\"spin\":%.2f,\"energy\":%.2f},\"leptonNumber\":%d}}",
@@ -18,7 +18,7 @@ public class Electron extends Fermion {
         );
     }
 
-    @Override
+    // Quitar @Override si no existe en ninguna interfaz/padre
     public void simulate() {
         System.out.printf(
                 "Electron [%s] with lepton number %d is stable and does not decay.",

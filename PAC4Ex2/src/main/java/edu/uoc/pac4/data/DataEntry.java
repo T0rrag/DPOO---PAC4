@@ -3,6 +3,7 @@ package edu.uoc.pac4.data;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import edu.uoc.pac4.particle.Particle;
+import edu.uoc.pac4.exception.DataEntryException;
 
 public class DataEntry implements Cloneable {
     private int id;
@@ -11,7 +12,11 @@ public class DataEntry implements Cloneable {
     private String observations;
     private Particle particle;
 
-    public DataEntry(int id, String title, LocalDateTime timestamp, String observations, Particle particle) {
+    // CONSTRUCTOR CORREGIDO
+    public DataEntry(int id, String title, LocalDateTime timestamp, String observations, Particle particle) throws DataEntryException {
+        if (particle == null) {
+            throw new DataEntryException("[ERROR] Particle cannot be null.");
+        }
         this.id = id;
         this.title = title;
         this.timestamp = timestamp;
@@ -32,7 +37,14 @@ public class DataEntry implements Cloneable {
     public void setObservations(String observations) { this.observations = observations; }
 
     public Particle getParticle() { return particle; }
-    public void setParticle(Particle particle) { this.particle = particle; }
+
+    // SETTER CORREGIDO (opcional, pero recomendado por si lo piden en tests)
+    public void setParticle(Particle particle) throws DataEntryException {
+        if (particle == null) {
+            throw new DataEntryException("[ERROR] Particle cannot be null.");
+        }
+        this.particle = particle;
+    }
 
     @Override
     public Object clone() throws CloneNotSupportedException {
